@@ -1,0 +1,28 @@
+# Segredos nunca entram na imagem
+.env
+.env.*
+!.env.example
+
+# Gerados / locais
+vendor
+node_modules
+public/build
+public/hot
+public/storage
+bootstrap/cache/*.php
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/pail
+database/*.sqlite
+.phpunit.cache
+.phpunit.result.cache
+
+# Não usados em produção
+tests
+.git
+.vercel
+.idea
+.vscode
+*.log

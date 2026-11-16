@@ -1,0 +1,53 @@
+<?php
+
+// Mensagens de validação em português (somente as regras usadas no sistema).
+return [
+    'after' => 'O campo :attribute deve ser posterior a :date.',
+    'array' => 'O campo :attribute é inválido.',
+    'boolean' => 'O campo :attribute deve ser verdadeiro ou falso.',
+    'date' => 'O campo :attribute deve ser uma data válida.',
+    'date_format' => 'O campo :attribute deve estar no formato :format.',
+    'distinct' => 'O campo :attribute tem valores repetidos.',
+    'email' => 'Informe um e-mail válido.',
+    'exists' => 'O valor selecionado em :attribute é inválido.',
+    'in' => 'O valor selecionado em :attribute é inválido.',
+    'integer' => 'O campo :attribute deve ser um número inteiro.',
+    'max' => [
+        'numeric' => 'O campo :attribute não pode ser maior que :max.',
+        'string' => 'O campo :attribute não pode ter mais de :max caracteres.',
+        'array' => 'O campo :attribute não pode ter mais de :max itens.',
+    ],
+    'min' => [
+        'numeric' => 'O campo :attribute deve ser pelo menos :min.',
+        'string' => 'O campo :attribute deve ter pelo menos :min caracteres.',
+        'array' => 'O campo :attribute deve ter pelo menos :min itens.',
+    ],
+    'regex' => 'O formato de :attribute é inválido.',
+    'required' => 'O campo :attribute é obrigatório.',
+    'string' => 'O campo :attribute deve ser um texto.',
+    'unique' => 'Este :attribute já está em uso.',
+
+    'attributes' => [
+        'nome' => 'nome',
+        'matricula' => 'matrícula',
+        'email' => 'e-mail',
+        'password' => 'senha',
+        'data' => 'data',
+        'hora' => 'horário',
+        'servico_id' => 'serviço',
+        'curso_id' => 'curso',
+        'responsavel_id' => 'responsável',
+        'titulo_evento' => 'título do evento',
+        'descricao' => 'descrição',
+        'mensagem_responsavel' => 'mensagem do responsável',
+        'local' => 'local',
+        'duracao_minutos' => 'duração',
+        'antecedencia_minima_horas' => 'antecedência mínima',
+        'janela_dias' => 'janela de agendamento',
+        'slug' => 'endereço do link',
+        'disponibilidades' => 'disponibilidade',
+        'disponibilidades.*.dia_semana' => 'dia da semana',
+        'disponibilidades.*.hora_inicio' => 'hora de início',
+        'disponibilidades.*.hora_fim' => 'hora de término',
+    ],
+];
