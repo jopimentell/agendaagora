@@ -182,6 +182,22 @@ class FluxoPublicoTest extends TestCase
         ])->assertSessionHasErrors(['nome', 'matricula', 'email']);
     }
 
+    public function test_erro_volta_para_a_agenda_mesmo_apos_consultar_horarios(): void
+    {
+        // Bug encontrado em produção: a consulta de horários virava a "página anterior".
+        $this->get(route('publico.agenda', $this->agenda->slug));
+        $this->get(route('publico.disponibilidade', [$this->agenda->slug, 'mes' => '2026-11']));
+
+        $this->post(route('publico.agendar', $this->agenda->slug), [
+            'data' => '2026-11-18', 'hora' => '09:30', 'nome' => '', 'matricula' => '', 'email' => 'x',
+        ])->assertRedirect(route('publico.agenda', $this->agenda->slug));
+
+        $this->agendamento('2026-11-18 09:30');
+        $this->post(route('publico.agendar', $this->agenda->slug), [
+            'data' => '2026-11-18', 'hora' => '09:30', 'nome' => 'Outra', 'matricula' => '9', 'email' => 'o@email.com',
+        ])->assertRedirect(route('publico.agenda', $this->agenda->slug))->assertSessionHas('erro');
+    }
+
     public function test_cancelamento_com_mais_de_24h(): void
     {
         $ag = $this->agendamento('2026-11-18 09:30');

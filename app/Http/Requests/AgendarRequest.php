@@ -20,6 +20,12 @@ class AgendarRequest extends FormRequest
         ]);
     }
 
+    /** Em caso de erro, volta sempre para a página da agenda (nunca para o JSON de horários). */
+    protected function getRedirectUrl(): string
+    {
+        return route('publico.agenda', $this->route('slug'));
+    }
+
     public function rules(): array
     {
         return [

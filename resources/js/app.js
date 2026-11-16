@@ -77,7 +77,8 @@ Alpine.data('agendamento', (config) => ({
         this.erro = null;
         try {
             const resp = await fetch(`${this.url}?mes=${this.ano}-${pad(this.mes)}`, {
-                headers: { Accept: 'application/json' },
+                // X-Requested-With: o Laravel não grava esta URL como "página anterior".
+                headers: { Accept: 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
             });
             if (!resp.ok) throw new Error();
             this.dias = (await resp.json()).dias || {};

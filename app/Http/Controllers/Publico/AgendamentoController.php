@@ -34,7 +34,7 @@ class AgendamentoController extends Controller
                 $request->safe()->only(['nome', 'matricula', 'email']),
             );
         } catch (AgendamentoException $e) {
-            return back()->withInput()->with('erro', $e->getMessage());
+            return redirect()->route('publico.agenda', $slug)->withInput()->with('erro', $e->getMessage());
         }
 
         return redirect()
@@ -58,7 +58,7 @@ class AgendamentoController extends Controller
         try {
             $this->service->cancelar($agendamento);
         } catch (AgendamentoException $e) {
-            return back()->with('erro', $e->getMessage());
+            return redirect()->route('publico.agendamento', $token)->with('erro', $e->getMessage());
         }
 
         return redirect()
